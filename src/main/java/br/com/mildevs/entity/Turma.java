@@ -10,12 +10,13 @@ public class Turma {
     @Column(name = "codigo_turma")
     private int codigoTurma;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "cod_professor_fk", referencedColumnName = "cod_professor")
     private Professor professor;
 
-    @ManyToMany(mappedBy = "turmas")
+    @ManyToMany(mappedBy = "turmas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Aluno> alunos;
+
 
 
 

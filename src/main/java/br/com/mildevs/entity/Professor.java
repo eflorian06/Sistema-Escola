@@ -1,9 +1,6 @@
 package br.com.mildevs.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -29,7 +26,7 @@ public class Professor {
     @Column(nullable = false)
     private String disciplinaProfessor;
 
-    @OneToMany(mappedBy = "professor")
+    @OneToMany(mappedBy = "professor", fetch = FetchType.LAZY)
     private List<Turma> turmas;
 
 
